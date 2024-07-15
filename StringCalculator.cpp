@@ -15,7 +15,7 @@ int StringCalculator::add(const std::string& input) {
         delimiter = modifiedInput.substr(2, pos - 2);
         modifiedInput = modifiedInput.substr(pos + 1);
     }
-    return0:}
+    return 0:}
 
 
     // Extract numbers

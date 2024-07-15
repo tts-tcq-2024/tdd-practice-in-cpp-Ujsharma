@@ -18,3 +18,11 @@ TEST(StringCalculatorAddTests, ExpectZeroForSingleZero) {
 
     ASSERT_EQ(result, expectedresult);
 }
+
+TEST(StringCalculatorAddTests, ExpectExceptionForNegativeNumbers) {
+    ASSERT_THROW({
+        std::string input = "-1,2";
+        StringCalculator objUnderTest;
+       objUnderTest.add(input);
+        }, std::runtime_error);
+}

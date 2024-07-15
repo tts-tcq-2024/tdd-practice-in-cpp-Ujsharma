@@ -15,11 +15,9 @@ int StringCalculator::add(const std::string& input) {
         delimiter = modifiedInput.substr(2, pos - 2);
         modifiedInput = modifiedInput.substr(pos + 1);
     }
-    return 0;}
-
 
     // Extract numbers
-    std::vector<int> numbers = extractNumbers(const std::string& input,std::string delimiter);
+    std::vector<int> numbers = extractNumbers(modifiedInput, delimiter);
 
     // Check for negatives
     for (int num : numbers) {

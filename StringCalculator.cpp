@@ -1,27 +1,56 @@
 #include "StringCalculator.h"
-#include <stdexcept>
 #include <sstream>
-#include <algorithm>
-#include <vector>
+#include <stdexcept>
 
 int StringCalculator::add(const std::string& input) {
     if (input.empty()) {
         return 0;
-    }}
+    }
 
-std::string delimiter = ",";
+    // Determine delimiter
+    std::string delimiter = ",";
     if (input.substr(0, 2) == "//") {
         size_t pos = input.find("\n");
         delimiter = input.substr(2, pos - 2);
         input = input.substr(pos + 1);
     }
 
-    // Extracting numbers
+    // Extract numbers
     std::vector<int> numbers = extractNumbers(input, delimiter);
 
-for (int num : numbers) {
+    // Check for negatives
+    for (int num : numbers) {
         if (num < 0) {
             throw std::runtime_error("Negatives not allowed");
         }
     }
+
+    // Sum numbers, ignoring those greater than 1000
+    int sum = 0;
+    for (int num : numbers) {
+        if (num <= 1000) {
+            sum += num;
+        }
+    }
+
+    return sum;  // Add this return statement to fix the warning
+}
+
+std::vector<int> StringCalculator::extractNumbers(const std::string& input, const std::string& delimiter) {
+    std::vector<int> numbers;
+    std::istringstream iss(input);
+    std::string token;
+
+    while (std::getline(iss, token, ',')) {
+        size_t pos = token.find(delimiter);
+        while (pos != std::string::npos) {
+            token.replace(pos, delimiter.length(), ",");
+            pos = token.find(delimiter, pos + 1);
+        }
+        numbers.push_back(std::stoi(token));
+    }
+
+    return numbers;
+}
+
 

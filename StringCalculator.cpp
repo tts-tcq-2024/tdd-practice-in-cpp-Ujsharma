@@ -12,3 +12,12 @@ int StringCalculator::add(const std::string& input) {
 bool checkifInput0orEmpty(const std::string& input) {
     return input.empty() || input == "0";
 }
+
+void verifyUpdateInput(int& sum, const std::string& number) {
+    int num = std::stoi(number);
+    checkifInputNegative(num);
+    if (checkifNumberLessThanOrEqualTo1000(num)) {
+        sum += num;
+    }
+}
+

@@ -33,7 +33,7 @@ int StringCalculator::add(const std::string& input) {
         }
     }
 
-    return sum;  // Add this return statement to fix the warning
+    return sum;
 }
 
 std::vector<int> StringCalculator::extractNumbers(const std::string& input, const std::string& delimiter) {
@@ -52,5 +52,3 @@ std::vector<int> StringCalculator::extractNumbers(const std::string& input, cons
 
     return numbers;
 }
-
-

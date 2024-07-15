@@ -34,3 +34,26 @@ TEST(StringCalculatorAddTests, ExpectSumWithNewlineDelimiter) {
     int result =objUnderTest.add(input);
 
     ASSERT_EQ(result, expectedresult);
+
+TEST(StringCalculatorAddTests, IgnoreNumbersGreaterThan1000) {
+    int expectedresult = 1;
+    std::string input = "1,1001";
+    StringCalculator objUnderTest;
+    int result =objUnderTest.add(input);
+
+    ASSERT_EQ(result, expectedresult);
+}
+
+TEST(StringCalculatorAddTests, ExpectSumWithCustomDelimiter) {
+    int expectedresult = 3;
+    std::string input = "//;\n1;2";
+    StringCalculator objUnderTest;
+    int result = objUnderTest.add(input);
+
+    ASSERT_EQ(result, expectedresult);
+}
+
+int main(int argc, char** argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}

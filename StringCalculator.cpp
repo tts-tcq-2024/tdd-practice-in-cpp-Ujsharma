@@ -3,17 +3,19 @@
 #include <stdexcept>
 
 int StringCalculator::add(const std::string& input) {
-    if (input.empty()) {
+    std::string modifiedInput = input;  // Create a local non-const copy for modification
+
+    if (modifiedInput.empty()) {
         return 0;
     }
 
-    // Determine delimiter
     std::string delimiter = ",";
-    if (input.substr(0, 2) == "//") {
-        size_t pos = input.find("\n");
-        delimiter = input.substr(2, pos - 2);
-        input = input.substr(pos + 1);
+    if (modifiedInput.substr(0, 2) == "//") {
+        size_t pos = modifiedInput.find("\n");
+        delimiter = modifiedInput.substr(2, pos - 2);
+        modifiedInput = modifiedInput.substr(pos + 1);
     }
+
 
     // Extract numbers
     std::vector<int> numbers = extractNumbers(input, delimiter);

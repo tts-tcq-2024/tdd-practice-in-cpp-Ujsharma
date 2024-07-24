@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+int StringCalculator::add(const std::string& numbers) {
+    return ::add(numbers.c_str());
+}
+
 // Function to add values in an array if they are less than 1001
 int add_arr(int *arr, int cnt)
 {

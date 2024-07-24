@@ -105,11 +105,3 @@ int add(const char *ch)
     }
     return -1;
 }
-
-int main()
-{
-    const char *input = "123 456 789";  // Example input
-    int result = add(input);
-    printf("Sum: %d\n", result);  // Expected output: 1368
-    return 0;
-}

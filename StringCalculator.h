@@ -5,6 +5,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+class StringCalculator {
+public:
+    int add(const std::string& numbers);
+};
+
 // Function declarations
 int add_arr(int *arr, int cnt);
 int check_num(const char ch);

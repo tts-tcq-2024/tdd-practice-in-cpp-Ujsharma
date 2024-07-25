@@ -2,8 +2,7 @@
 #include <string>
 #include <vector>
 #include <regex>
-#include <stdexcept> 
-#include "StringCalculator.h"
+#include "StringCalculator.hpp"
 
 // Definition of static methods
 void StringCalculator::checkForNegative(int number) {

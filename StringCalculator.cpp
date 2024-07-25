@@ -12,10 +12,7 @@ void StringCalculator::checkForNegative(int number) {
 }
 
 int StringCalculator::checkforGreaterthan1000(int number) {
-    if (number > 1000) {
-        return 0;
-    }
-    return number;
+    return (number > 1000) ? 0 : number;
 }
 
 std::vector<int> StringCalculator::extractNumbers(const std::string& input) {
@@ -26,20 +23,17 @@ std::vector<int> StringCalculator::extractNumbers(const std::string& input) {
     std::sregex_iterator iter(input.begin(), input.end(), pattern);
     std::sregex_iterator end;
 
-    while (iter != end) {
-        std::string match = iter->str();
-        int number = std::stoi(match);
-        
+    for (auto i = iter; i != end; ++i) {
+        int number = std::stoi(i->str());
+
         // Check for negative numbers
         checkForNegative(number);
         // Check if number greater than 1000
         number = checkforGreaterthan1000(number);
         // Add the number to the vector if it's not excluded
-        if (number != 0) { // Exclude 0s which are placeholders for numbers greater than 1000
+        if (number != 0) {
             numbers.push_back(number);
         }
-        
-        ++iter;
     }
 
     return numbers;

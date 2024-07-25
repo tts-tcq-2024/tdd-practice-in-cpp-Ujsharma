@@ -39,6 +39,7 @@ std::vector<int> StringCalculator::extractNumbers(const std::string& input) {
     return numbers;
 }
 
+
 int StringCalculator::calculateSum(const std::vector<int>& numbers) {
     int sum = 0;
     for (int num : numbers) {

@@ -9,6 +9,7 @@ class StringCalculator {
 public:
     static int add(const std::string& input);
 
+
 private:
     static void checkForNegative(int number);
     static int checkforGreaterthan1000(int number);
